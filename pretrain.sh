@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=BENDR
-#SBATCH --output=~/BENDR_ORIGINAL/logs/output_%J.out
-#SBATCH --error=~/BENDR_ORIGINAL/logs/error_%J.err
+#SBATCH --output=~/BENDR_PRETRAIN/logs/pretrain/output_%J.out
+#SBATCH --error=~/BENDR_PRETRAIN/logs/pretrain/error_%J.err
 #SBATCH --gres=gpu:Turing:1
 #SBATCH --cpus-per-task=16
 #SBATCH --time=3-00:00:00
