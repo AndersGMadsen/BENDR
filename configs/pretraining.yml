@@ -1,7 +1,7 @@
 Configuratron:
   use_only:
     - tueg_v2
-    - mmidb #bci_iv_2a
+    - mmidb
   samples: 15360 # = 60 seconds
   sfreq: 256
   deep1010:
@@ -42,9 +42,9 @@ bending_college_args:
 datasets:
   tueg_v2:
     name: "TUH EEG v2.0.0"
-    data_max: 0.00125 #3276.7
-    data_min: -0.00125 #-1583.9258304722666
-    toplevel: /scratch/s194260/tuh_eeg_quality_2
+    data_max: 0.00125
+    data_min: -0.00125
+    toplevel: /scratch/s194260/tuh_eeg_quality
     stride: 15360 # = 256 * 60 = 1 min
     dataset_id: 2
     task_id: 2
@@ -58,19 +58,6 @@ datasets:
     load_onthefly: True
     picks:
       - eeg
-
-  # bci_iv_2a:
-  #   name: "BCI Competition IV 2a"
-  #   toplevel: /scratch/s194260/bci_iv
-  #   stride: 1536
-  #   data_max: 100
-  #   data_min: -100
-  #   extensions:
-  #     - .edf
-  #   picks:
-  #     - eeg
-  #   exclude_sessions:
-  #     - "*E*"
 
   mmidb:
     name: "Physionet MMIDB"
