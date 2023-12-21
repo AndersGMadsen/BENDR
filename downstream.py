@@ -3,6 +3,7 @@ import tqdm
 import argparse
 
 import objgraph
+import datetime
 
 import time
 import utils
@@ -36,6 +37,7 @@ if __name__ == '__main__':
                                                                  'final results.')
     args = parser.parse_args()
     experiment = ExperimentConfig(args.ds_config)
+    
     if args.results_filename:
         results = ThinkerwiseResultTracker()
 
