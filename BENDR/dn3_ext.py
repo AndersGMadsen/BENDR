@@ -179,7 +179,8 @@ class RefinedBENDR(StrideClassifier):
         for p in range(1, new_projection_layers + 1):
             self.projection_mlp.add_module("projection-{}".format(p), nn.Sequential(
                 nn.Conv1d(encoder_h, encoder_h, 1),
-                nn.Dropout1d(dropout),
+                #NOTE: changed from Dropout 1d to Dropout
+                nn.Dropout(dropout),
                 nn.BatchNorm1d(encoder_h),
                 nn.GELU(),
             ))
@@ -382,7 +383,8 @@ class ConvEncoderBENDR(_BENDREncoder):
         for i, (width, downsample) in enumerate(zip(enc_width, enc_downsample)):
             self.encoder.add_module("Encoder_{}".format(i), nn.Sequential(
                 nn.Conv1d(in_features, encoder_h, width, stride=downsample, padding=width // 2),
-                nn.Dropout1d(dropout),
+                #NOTE: changed from Dropout 1d to Dropout
+                nn.Dropout(dropout),
                 nn.GroupNorm(encoder_h // 2, encoder_h),
                 nn.GELU()
             ))
@@ -391,7 +393,8 @@ class ConvEncoderBENDR(_BENDREncoder):
         if projection_head:
             self.encoder.add_module("projection-1", nn.Sequential(
                 nn.Conv1d(in_features, in_features, 1),
-                nn.Dropout1d(dropout*2),
+                #NOTE: changed from Dropout 1d to Dropout
+                nn.Dropout(dropout*2),
                 nn.GroupNorm(in_features // 2, in_features),
                 nn.GELU()
             ))

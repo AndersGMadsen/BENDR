@@ -1,6 +1,6 @@
 Configuratron:
   use_only:
-    - mmidb
+    - BrainCapture
   preload: True
   sfreq: 256
   deep1010:
@@ -10,4 +10,3 @@ encoder_weights: data/checkpoints/encoder.pt
 context_weights: data/checkpoints/contextualizer.pt
 
 datasets: !include configs/downstream_datasets.yml
-

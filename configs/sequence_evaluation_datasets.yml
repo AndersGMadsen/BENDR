@@ -1,6 +1,6 @@
 mmidb:
-  name: "Physionet MMIDB"
-  toplevel: data/datasets/eegmmidb/
+  name: "BrainCapture"
+  toplevel: /zhome/15/a/181503/BrainCapture/BENDR/data
   stride: 15360
   data_max: 0.001
   data_min: -0.001

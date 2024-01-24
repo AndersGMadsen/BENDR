@@ -1,23 +1,21 @@
-mmidb:
-  name: "Physionet MMIDB"
-  toplevel: data/datasets/eegmmidb/
+BrainCapture:
+  name: BrainCapture 
+  toplevel: /zhome/15/a/181503/BrainCapture/BENDR/data/standardized_BraiCapture_data/
   tmin: 0
   tlen: 4
   data_max: 0.00125
   data_min: -0.00125
-  events:
-    - T1
-    - T2
-  exclude_sessions:
-    - "*R0[!48].edf"  # equivalently "*R0[1235679].edf"
-    - "*R1[!2].edf"   # equivalently "*R1[134].edf"
-  exclude_people:
-    - S088
-    - S090
-    - S092
-    - S100
+  events: # Annotations
+    - "Eye blinking"
+    - "Eye movement left-right"
+    - "Eyes closed"
+    - "Look straight forward keep"
+    - "Jaw clenching"
+    - "Hyperventilation"
+  extensions:
+    - .edf
   train_params:
     epochs: 50
     batch_size: 4 # I find this dataset likes small batch sizes
   lr: 0.00001
-  folds: 105
+  folds: 136 # Folds = Subjects

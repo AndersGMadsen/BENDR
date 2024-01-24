@@ -41,7 +41,8 @@ def get_raw(edf_file_path):
 
     # Set average reference for EEG channels and apply the montage
     raw.set_eeg_reference(ref_channels='average', projection=True, verbose=False)
-    raw.set_montage(montage)
+    #raw.set_montage(montage)
+    raw.set_montage(montage, on_missing='ignore')
 
     # Apply projection to the data
     raw.apply_proj(verbose=False)
